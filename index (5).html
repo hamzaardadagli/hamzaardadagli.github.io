@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Hamza Arda Dağlı, Yazılım Mühendisliği öğrencisi. Yapay zekâ uygulamaları, otomasyon ve IoT projeleri.">
+<meta property="og:title" content="Hamza Arda Dağlı">
+<meta property="og:description" content="Hamza Arda Dağlı, Yazılım Mühendisliği öğrencisi. Yapay zekâ uygulamaları, otomasyon ve IoT projeleri.">
+<title>Hamza Arda Dağlı</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: tek sütun, sol kenarda mono "satır numarası" etiketleri olan bir kod editörü ritmi */
+:root{
+  --bg:#f5f7fa;
+  --surface:#ffffff;
+  --fg:#141a24;
+  --muted:#5b6678;
+  --line:#dde2ea;
+  --accent:#2648d8;
+  --accent-soft:#e6ebfc;
+  --ok:#17804b; --ok-soft:#e3f4ea;
+  --warn:#a35b00; --warn-soft:#fbefdc;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0e1219; --surface:#151b25; --fg:#e8ecf3; --muted:#97a2b5; --line:#263041;
+  --accent:#7d96ff; --accent-soft:#1c2547;
+  --ok:#5fd394; --ok-soft:#14301f; --warn:#f0b35c; --warn-soft:#33260f;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0e1219; --surface:#151b25; --fg:#e8ecf3; --muted:#97a2b5; --line:#263041;
+  --accent:#7d96ff; --accent-soft:#1c2547;
+  --ok:#5fd394; --ok-soft:#14301f; --warn:#f0b35c; --warn-soft:#33260f;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:860px;margin:0 auto;padding-block:56px 72px;display:flex;flex-direction:column;gap:72px}
+
+/* Nav */
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-family:var(--f-mono);font-size:13px}
+nav .brand{color:var(--fg);font-weight:500;text-decoration:none}
+nav .brand span{color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{color:var(--muted);text-decoration:none}
+nav ul a:hover{color:var(--fg)}
+
+/* Hero */
+.hero{display:flex;flex-direction:column;gap:22px}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:12.5px;color:var(--ok);background:var(--ok-soft);padding:5px 12px;border-radius:999px;width:fit-content}
+.status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ok)}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2.6rem,7vw,4.4rem);line-height:1;letter-spacing:-.03em;margin:0;text-wrap:balance}
+h1 .soft{color:var(--muted);font-weight:500}
+.lead{font-size:clamp(1.05rem,2.2vw,1.22rem);color:var(--muted);max-width:60ch;margin:0}
+.lead strong{color:var(--fg);font-weight:600}
+.links{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);text-decoration:none;font-weight:500;font-size:15px;transition:border-color .15s, transform .15s}
+.btn:hover{border-color:var(--accent);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.btn svg{width:17px;height:17px;flex:none}
+
+/* Section shell */
+section{display:grid;grid-template-columns:120px 1fr;gap:24px}
+.sec-label{font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;padding-top:8px}
+.sec-label b{display:block;color:var(--accent);font-weight:500}
+.sec-body{min-width:0;display:flex;flex-direction:column;gap:20px}
+h2{font-family:var(--f-display);font-weight:700;font-size:1.75rem;letter-spacing:-.02em;margin:0;line-height:1.15}
+.sec-intro{color:var(--muted);margin:0;max-width:62ch}
+@media (max-width:640px){ section{grid-template-columns:1fr;gap:10px} .sec-label{padding-top:0} .sec-label b{display:inline;margin-right:8px} }
+
+/* Interests */
+.interest.wide{grid-column:1 / -1;background:var(--accent-soft)}
+.interest.wide h3{font-size:1.3rem}
+.interest.wide p{color:var(--fg);max-width:62ch}
+@media (max-width:560px){ .interests{grid-template-columns:1fr!important} }
+.interests{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.interest{background:var(--surface);padding:20px;display:flex;flex-direction:column;gap:6px}
+.interest h3{font-family:var(--f-display);font-size:1.08rem;font-weight:700;margin:0}
+.interest p{margin:0;color:var(--muted);font-size:14.5px}
+.interest code{font-family:var(--f-mono);font-size:12px;color:var(--accent)}
+
+/* Learning list */
+.learning{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.learning li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline;padding:14px 0;border-bottom:1px dashed var(--line)}
+.learning li:first-child{border-top:1px dashed var(--line)}
+.learning .topic{font-weight:600}
+.learning .note{grid-column:1;color:var(--muted);font-size:14.5px}
+.chip{grid-row:1 / span 2;grid-column:2;align-self:center;font-family:var(--f-mono);font-size:11.5px;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.chip.now{background:var(--accent-soft);color:var(--accent)}
+.chip.practice{background:var(--warn-soft);color:var(--warn)}
+.chip.done{background:var(--ok-soft);color:var(--ok)}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.project.featured{grid-column:1 / -1}
+.project.featured h3{font-size:1.45rem}
+.project .kind{font-family:var(--f-mono);font-size:11.5px;color:var(--accent);letter-spacing:.03em}
+.project ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+.project.featured ul{columns:2;column-gap:32px;display:block}
+.project.featured ul li{break-inside:avoid;margin-bottom:4px}
+@media (max-width:640px){ .projects{grid-template-columns:1fr} .project.featured ul{columns:1} }
+.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s}
+.project:hover{border-color:var(--accent)}
+.project header{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.project h3{font-family:var(--f-display);font-size:1.2rem;font-weight:700;margin:0;letter-spacing:-.01em}
+.project .year{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.project p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--f-mono);font-size:11.5px;padding:3px 8px;border:1px solid var(--line);border-radius:6px;color:var(--fg)}
+.project .more{font-size:14px;font-weight:500;display:flex;gap:16px}
+.example-note{font-family:var(--f-mono);font-size:12px;color:var(--warn);margin:0}
+
+/* Contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:18px}
+.mail-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mail{font-family:var(--f-mono);font-size:clamp(.95rem,2.6vw,1.15rem);background:var(--bg);border:1px solid var(--line);padding:10px 14px;border-radius:10px;user-select:all;overflow-wrap:anywhere;min-width:0}
+.copy{font:inherit;font-size:14px;font-weight:500;cursor:pointer;padding:10px 14px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--bg)}
+.socials{display:flex;flex-wrap:wrap;gap:10px}
+
+footer{font-family:var(--f-mono);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-top:1px solid var(--line);padding-top:20px}
+
+@media (prefers-reduced-motion: reduce){ *{transition:none!important} }
+</style>
+<style>html{scroll-behavior:smooth}body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top">hamza<span>.dev</span></a>
+    <ul>
+      <li><a href="#ilgi">İlgi alanları</a></li>
+      <li><a href="#ogreniyorum">Öğreniyorum</a></li>
+      <li><a href="#projeler">Projeler</a></li>
+      <li><a href="#iletisim">İletişim</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <span class="status">Staj ve proje fırsatlarına açığım</span>
+    <h1>Hamza Arda Dağlı<br><span class="soft">kod yazıyor, öğreniyor, üretiyor.</span></h1>
+    <p class="lead"><strong>Yazılım Mühendisliği 3. sınıf öğrencisiyim.</strong> Yapay zekâ destekli uygulamalar, iş süreçlerini hızlandıran otomasyonlar ve donanımla konuşan yazılımlar geliştiriyorum. Öğrendiklerimi gerçek bir ihtiyaca çözüm olan projelere dönüştürüyorum.</p>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/hamzaardadagli" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+      <a class="btn" href="#iletisim">Bana yaz →</a>
+    </div>
+  </header>
+
+  <section id="ilgi">
+    <div class="sec-label"><b>01</b>ilgi</div>
+    <div class="sec-body">
+      <h2>Nelerle ilgileniyorum</h2>
+      <div class="interests">
+        <div class="interest wide"><code>ai/ · ana odak</code><h3>Yapay zekâ uygulamaları</h3><p>En çok vakit ayırdığım alan. Yapay zekâyı kullanarak gerçek bir soruna çözüm olan, insanların gerçekten kullanabileceği uygulamalar geliştiriyorum.</p></div>
+        <div class="interest"><code>web/</code><h3>Web geliştirme</h3><p>Hızlı açılan, telefonda da düzgün çalışan arayüzler kurmak.</p></div>
+        <div class="interest"><code>mobile/</code><h3>Mobil uygulama</h3><p>Fikirleri cebe sığan, kullanımı kolay mobil uygulamalara dönüştürmek.</p></div>
+        <div class="interest"><code>api/</code><h3>Backend ve API tasarımı</h3><p>Temiz REST servisleri, veritabanı modelleme, kimlik doğrulama.</p></div>
+        <div class="interest"><code>oss/</code><h3>Açık kaynak</h3><p>Açık kaynak araçları projelerimde kullanmak ve başkalarının kodunu okuyarak öğrenmek.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ogreniyorum">
+    <div class="sec-label"><b>02</b>şu an</div>
+    <div class="sec-body">
+      <h2>Kendimi geliştirdiğim konular</h2>
+      <p class="sec-intro">Bu dönem odaklandığım başlıklar ve her birinde nerede olduğum.</p>
+      <ul class="learning">
+        <li><span class="topic">Yapay zekâ ajanları ve LLM entegrasyonu</span><span class="note">Tool calling, prompt tasarımı ve modelin veritabanıyla güvenli konuşması.</span><span class="chip practice">pratik yapıyorum</span></li>
+        <li><span class="topic">Python ile otomasyon ve veri işleme</span><span class="note">Pandas, Excel raporlama, arka plan botları, e-posta otomasyonu.</span><span class="chip done">rahatım</span></li>
+        <li><span class="topic">SQL ve veritabanları</span><span class="note">SQLite ile sorgu yazma, gruplama ve tarih bazlı analizler.</span><span class="chip practice">pratik yapıyorum</span></li>
+        <li><span class="topic">IoT ve gömülü sistemler</span><span class="note">Raspberry Pi, sensörler, step motor kontrolü ve GPIO.</span><span class="chip practice">pratik yapıyorum</span></li>
+        <li><span class="topic">Python ile web arayüzleri</span><span class="note">Flask ve Streamlit ile panel ve dashboard geliştirme.</span><span class="chip practice">pratik yapıyorum</span></li>
+        <li><span class="topic">Node.js ile backend</span><span class="note">Express, PostgreSQL ve JWT ile kimlik doğrulama.</span><span class="chip now">öğreniyorum</span></li>
+        <li><span class="topic">Veri yapıları ve algoritmalar</span><span class="note">Haftalık problem çözme, mülakat hazırlığı.</span><span class="chip practice">pratik yapıyorum</span></li>
+        <li><span class="topic">Git ve takım çalışması</span><span class="note">Branch stratejileri, code review, pull request akışı.</span><span class="chip done">rahatım</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projeler">
+    <div class="sec-label"><b>03</b>projeler</div>
+    <div class="sec-body">
+      <h2>Yaptığım projeler</h2>
+      <p class="sec-intro">Gerçek bir ihtiyaçtan çıkıp uçtan uca geliştirdiğim projeler. Yenilerini yaptıkça buraya ekliyorum.</p>
+      <div class="projects">
+        <article class="project featured">
+          <span class="kind">yapay zekâ · veri analizi</span>
+          <header><h3>Üretim Analiz Asistanı</h3><span class="year">2026</span></header>
+          <p>Üretim verilerine Türkçe soru sorulabilen, yapay zekâ destekli bir analiz uygulaması. Excel dosyası yüklenince veriler veritabanına aktarılıyor; kullanıcı "Bu ay en çok fire hangi üründe?" gibi bir soru yazdığında yapay zekâ ajanı gerekli SQL sorgusunu kendisi yazıp çalıştırıyor ve sonucu açıklayarak grafikle sunuyor.</p>
+          <ul>
+            <li>Tool calling ile çalışan, gerektiğinde birden fazla adımda düşünen ajan yapısı</li>
+            <li>Ajanın yalnızca okuma (SELECT) sorgusu çalıştırabildiği güvenli veritabanı erişimi</li>
+            <li>Haftalık verimlilik ve fire özetini hesaplayıp grafikli e-posta raporu olarak gönderme</li>
+            <li>Excel'den SQLite'a otomatik veri aktarımı ve Türkçe sütun adı eşleştirme</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Streamlit</span><span>OpenAI API</span><span>SQLite</span><span>Pandas</span><span>Matplotlib</span></div>
+          <div class="more"><a href="https://github.com/hamzaardadagli/STAJ-wagner-analiz-robotu" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
+        </article>
+        <article class="project">
+          <span class="kind">iot · gömülü sistemler</span>
+          <header><h3>Akıllı Perde Sistemi</h3><span class="year">2026</span></header>
+          <p>Raspberry Pi ile çalışan, güneşin konumuna ve ortam ışığına göre kendini açıp kapatan motorlu perde. Güneşin o an pencereye vurup vurmadığını hesaplıyor, telefondan yönetilebilen bir web paneli sunuyor.</p>
+          <ul>
+            <li>Konuma göre güneş açısı hesabı ve ışık sensörüyle otomatik karar</li>
+            <li>Step motorla adım adım konum takibi, elektrik kesintisinde konumu hatırlama</li>
+            <li>Şifreli web paneli: manuel/otomatik mod, ince ayar, canlı sistem kayıtları</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Flask</span><span>Raspberry Pi</span><span>GPIO</span><span>Threading</span></div>
+          <div class="more"><a href="https://github.com/hamzaardadagli/STAJ-AKILLI-PERDE" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
+        </article>
+        <article class="project">
+          <span class="kind">otomasyon · planlama</span>
+          <header><h3>Üretim Planlama Otomasyonu</h3><span class="year">2026</span></header>
+          <p>Arka planda çalışan ve bir klasöre yeni sipariş Excel'i düştüğü anda devreye giren bot. Siparişten hammadde ihtiyacını ve üretim süresini hesaplıyor, raporu hazırlayıp e-postayla gönderiyor.</p>
+          <ul>
+            <li>Klasörü canlı izleyip yeni dosyayı anında yakalama</li>
+            <li>Ürün tipine göre hammadde, vardiya süresi ve stok yeterliliği hesabı</li>
+            <li>Excel raporu ve grafik üretip ekli e-posta olarak gönderme, işlem kayıtları tutma</li>
+          </ul>
+          <div class="tags"><span>Python</span><span>Pandas</span><span>Watchdog</span><span>Matplotlib</span><span>SMTP</span></div>
+          <div class="more"><a href="https://github.com/hamzaardadagli/STAJ-Planlama-Otomasyon" target="_blank" rel="noopener">Kaynak kod ↗</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim">
+    <div class="sec-label"><b>04</b>iletişim</div>
+    <div class="sec-body">
+      <h2>Birlikte bir şey yapalım</h2>
+      <div class="contact">
+        <p class="sec-intro">Staj, proje fikri ya da sadece merhaba demek için e-posta at. Genelde bir gün içinde dönüyorum.</p>
+        <div class="mail-row">
+          <span class="mail" id="mail">hamzaardadagli07@gmail.com</span>
+          <button class="copy" id="copyBtn" type="button">Kopyala</button>
+        </div>
+        <div class="socials">
+          <a class="btn" href="https://github.com/hamzaardadagli" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Hamza Arda Dağlı</span>
+    <span>Konya · Türkiye</span>
+  </footer>
+</div>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  const btn = this, text = document.getElementById('mail').textContent.trim();
+  const done = () => { btn.textContent = 'Kopyalandı'; setTimeout(()=>btn.textContent='Kopyala', 1800); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Seçildi, Ctrl+C'; };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+});
+</script>
+
+</body>
+</html>
